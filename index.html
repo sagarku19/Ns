@@ -16,7 +16,7 @@
         /* CSS Reset and Global Styles */
         :root {
             --slate-900: #0f172a;
-            --slate-800: #1e293b;
+            --slate-800: #1e2b3b;
             --slate-700: #334155;
             --slate-600: #475569;
             --slate-400: #94a3b8;
@@ -70,6 +70,7 @@
             z-index: 1001;
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(99, 102, 241, 0.2);
             padding: 15px 20px;
         }
@@ -93,6 +94,7 @@
             width: 40px;
             height: 40px;
             border-radius: 10px;
+            will-change: transform; /* Performance optimization for animation */
         }
         
         .brand-name {
@@ -156,12 +158,12 @@
             border-radius: 16px;
             border: 1px solid rgba(99, 102, 241, 0.15);
             min-width: 220px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease; /* Optimized transition */
+            will-change: transform;
         }
 
         .stat-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         
         .stat-number {
@@ -186,9 +188,8 @@
             border-radius: 24px;
             padding: 50px 40px;
             margin-bottom: 50px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(99, 102, 241, 0.2);
+            /* Removed backdrop-filter and complex box-shadow for performance */
         }
         
         .section-title {
@@ -226,10 +227,11 @@
             margin-bottom: 15px;
             border-radius: 12px;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease; /* Optimized transition */
             box-shadow: 0 8px 20px rgba(168, 85, 247, 0.25);
             display: flex;
             align-items: flex-start;
+            will-change: transform;
         }
         
         .features-list li::before {
@@ -238,11 +240,11 @@
             margin-right: 15px;
             font-size: 1.3rem;
             margin-top: 2px;
+            flex-shrink: 0;
         }
         
         .features-list li:hover {
             transform: translateX(10px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(168, 85, 247, 0.35);
         }
 
         .features-list li:nth-child(even) {
@@ -260,15 +262,14 @@
             background: var(--slate-800);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Optimized transition */
             border: 1px solid rgba(99, 102, 241, 0.2);
+            will-change: transform;
         }
         
         .sample-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.3);
-            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.25);
         }
         
         .sample-card .img-container {
@@ -319,12 +320,12 @@
             padding: 30px;
             border-radius: 16px;
             border: 1px solid rgba(99, 102, 241, 0.2);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease; /* Optimized transition */
+            will-change: transform;
         }
         
         .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
         }
         
         .testimonial-text {
@@ -363,7 +364,7 @@
             border-radius: 12px;
             border: 1px solid rgba(99, 102, 241, 0.2);
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease;
         }
 
         .faq-item:hover {
@@ -394,17 +395,18 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease, padding 0.5s ease;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             color: var(--slate-400);
             padding: 0 25px;
         }
 
         .faq-answer p {
             padding-bottom: 20px;
+            line-height: 1.7;
         }
 
         .faq-item.active .faq-answer {
-            max-height: 200px; /* Adjust as needed */
+            max-height: 200px;
         }
         
         /* Social Section */
@@ -425,8 +427,9 @@
             text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Optimized transition */
             box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+            will-change: transform;
         }
         
         .social-link:hover {
@@ -445,6 +448,7 @@
             box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
             z-index: 1000;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-top: 1px solid rgba(99, 102, 241, 0.3);
         }
         
@@ -477,12 +481,13 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Optimized transition */
             box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             border: none;
             cursor: pointer;
+            will-change: transform;
         }
         
         .pay-btn:hover {
@@ -508,7 +513,7 @@
 
             .container {
                 padding: 15px;
-                padding-bottom: 180px;
+                padding-bottom: 150px; /* Adjusted for smaller payment bar */
             }
 
             .header { padding: 40px 15px; }
@@ -517,7 +522,7 @@
             .section-title { font-size: 2rem; }
             
             .stats { gap: 15px; }
-            .stat-item { min-width: 160px; padding: 20px; }
+            .stat-item { min-width: 0; flex: 1 1 120px; padding: 20px; }
             
             .samples-grid {
                 grid-template-columns: 1fr;
@@ -528,16 +533,15 @@
             .section { padding: 35px 25px; }
             .features-list li { padding: 18px 20px; font-size: 0.95rem; }
             
-            .payment-bar { padding: 15px; }
+            .payment-bar { padding: 12px 15px; }
             .payment-content {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
+                flex-direction: row; /* Changed to row for compact view */
+                gap: 15px;
             }
             
-            .price-info { font-size: 1.2rem; }
-            .price-amount { font-size: 1.6rem; }
-            .pay-btn { width: 100%; padding: 12px 20px; font-size: 1rem;}
+            .price-info { font-size: 1rem; flex-shrink: 0;}
+            .price-amount { font-size: 1.3rem; display: block; }
+            .pay-btn { width: auto; padding: 10px 20px; font-size: 0.9rem; flex-grow: 1;}
         }
     </style>
 </head>
@@ -545,7 +549,7 @@
     <nav class="top-nav">
         <div class="nav-content">
              <a href="#" class="brand">
-                <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_96/v1757085609/favicon-32x32_cclypp.png" alt="NotesSearch Logo" class="logo floating">
+                <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_96/v1757085609/favicon-32x32_cclypp.png" alt="NotesSearch Logo" class="logo floating" loading="lazy" decoding="async">
                 <div class="brand-name">NotesSearch</div>
             </a>
         </div>
@@ -594,7 +598,7 @@
                 <div class="sample-card">
                     <div class="img-container">
                         <!-- Optimized Sample Image 1 -->
-                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_800/v1757085405/Drive_SSC_01_page-0001_pfx5qi.jpg" alt="UPSC Prelims Study Material">
+                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_800/v1757085405/Drive_SSC_01_page-0001_pfx5qi.jpg" alt="UPSC Prelims Study Material" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <div class="card-title">UPSC Prelims Notes</div>
@@ -605,7 +609,7 @@
                 <div class="sample-card">
                     <div class="img-container">
                         <!-- Optimized Sample Image 2 -->
-                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_800/v1757085405/JEE_Bundle_page-0001_gg9okq.jpg" alt="UPSC Mains Study Material">
+                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_800/v1757085405/JEE_Bundle_page-0001_gg9okq.jpg" alt="UPSC Mains Study Material" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <div class="card-title">UPSC Mains Bundle</div>
@@ -616,7 +620,7 @@
                 <div class="sample-card">
                     <div class="img-container">
                         <!-- Optimized Sample Image 3 -->
-                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_800/v1757085405/Drive_NEET_01_page-0001_gghvmb.jpg" alt="UPSC Optional Subject Material">
+                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_800/v1757085405/Drive_NEET_01_page-0001_gghvmb.jpg" alt="UPSC Optional Subject Material" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <div class="card-title">Optional Subject Notes</div>
@@ -627,7 +631,7 @@
                 <div class="sample-card">
                     <div class="img-container">
                         <!-- Optimized Sample Image 4 -->
-                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_800/v1757085405/Drive_JEE_01_page-0001_uxt5j1.jpg" alt="UPSC Current Affairs">
+                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_800/v1757085405/Drive_JEE_01_page-0001_uxt5j1.jpg" alt="UPSC Current Affairs" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <div class="card-title">Current Affairs</div>
