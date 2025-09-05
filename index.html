@@ -42,7 +42,7 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
+            background: var(--slate-900);
             min-height: 100vh;
             color: var(--slate-200);
             position: relative;
@@ -62,6 +62,47 @@
             pointer-events: none;
             z-index: -1;
         }
+
+        /* Sticky Navigation Bar */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 15px 20px;
+        }
+
+        .nav-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--indigo-500), var(--violet-500));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         
         /* Main Container */
         .container {
@@ -76,41 +117,12 @@
         /* Header Section */
         .header {
             text-align: center;
-            padding: 50px 20px;
-            background: rgba(15, 23, 42, 0.5);
-            border-radius: 24px;
-            margin-bottom: 50px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-        
-        .brand {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .logo {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
-        }
-        
-        .brand-name {
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--indigo-500), var(--violet-500));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            padding: 60px 20px;
+            margin-top: 20px;
         }
         
         .header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             background: linear-gradient(135deg, var(--blue-400), var(--green-400));
             -webkit-background-clip: text;
             background-clip: text;
@@ -143,7 +155,6 @@
             padding: 25px;
             border-radius: 16px;
             border: 1px solid rgba(99, 102, 241, 0.15);
-            backdrop-filter: blur(8px);
             min-width: 220px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -209,16 +220,16 @@
         }
         
         .features-list li {
-            background: linear-gradient(135deg, var(--indigo-500), var(--violet-500));
+            background: linear-gradient(135deg, var(--purple-500), var(--violet-500));
             color: white;
             padding: 20px 25px;
             margin-bottom: 15px;
             border-radius: 12px;
             font-weight: 500;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.25);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
         
         .features-list li::before {
@@ -226,15 +237,16 @@
             font-weight: 700;
             margin-right: 15px;
             font-size: 1.3rem;
+            margin-top: 2px;
         }
         
         .features-list li:hover {
             transform: translateX(10px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
+            box-shadow: 0 12px 30px rgba(168, 85, 247, 0.35);
         }
 
         .features-list li:nth-child(even) {
-            background: linear-gradient(135deg, #1e40af, #3730a3);
+            background: linear-gradient(135deg, var(--violet-500), var(--indigo-500));
         }
 
         /* Samples Section */
@@ -485,17 +497,22 @@
         
         @keyframes floating {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-8px); }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .top-nav { padding: 12px 15px; }
+            .brand-name { font-size: 1.3rem; }
+            .logo { width: 36px; height: 36px; }
+
             .container {
                 padding: 15px;
                 padding-bottom: 180px;
             }
 
-            .header h1 { font-size: 2.2rem; }
+            .header { padding: 40px 15px; }
+            .header h1 { font-size: 2.5rem; }
             .header p { font-size: 1.1rem; }
             .section-title { font-size: 2rem; }
             
@@ -511,26 +528,31 @@
             .section { padding: 35px 25px; }
             .features-list li { padding: 18px 20px; font-size: 0.95rem; }
             
+            .payment-bar { padding: 15px; }
             .payment-content {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
                 text-align: center;
             }
             
-            .price-info { font-size: 1.3rem; }
-            .price-amount { font-size: 1.8rem; }
-            .pay-btn { width: 100%; }
+            .price-info { font-size: 1.2rem; }
+            .price-amount { font-size: 1.6rem; }
+            .pay-btn { width: 100%; padding: 12px 20px; font-size: 1rem;}
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="brand">
-                <!-- Optimized Logo Image -->
+    <nav class="top-nav">
+        <div class="nav-content">
+             <a href="#" class="brand">
                 <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_96/v1757085609/favicon-32x32_cclypp.png" alt="NotesSearch Logo" class="logo floating">
                 <div class="brand-name">NotesSearch</div>
-            </div>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="header">
             <h1>UPSC Preparation Materials</h1>
             <p>Your Complete Study Package for the UPSC Civil Services Examination.</p>
         </header>
@@ -553,16 +575,16 @@
         <section class="section features-section">
             <h2 class="section-title">What You'll Get</h2>
             <ul class="features-list">
-                <li><strong>Detailed Exam Syllabus</strong> – A clear roadmap of the Prelims + Mains syllabus.</li>
-                <li><strong>Step-by-Step Preparation Plan</strong> – Structured weekly and monthly study guidance.</li>
-                <li><strong>Comprehensive Notes & PDFs</strong> – Simplified coverage of GS papers & optional subjects.</li>
-                <li><strong>Short Notes for Quick Revision</strong> – Condensed material for last-minute prep.</li>
-                <li><strong>Revision Mind Maps</strong> – Visual learning aids for Polity, Economy, History & more.</li>
-                <li><strong>Previous Year Questions (PYQs)</strong> – Solved papers with detailed explanations.</li>
-                <li><strong>Important Books PDFs</strong> – Summarized versions of standard reference books.</li>
-                <li><strong>Curated Video Links</strong> – Handpicked videos & online study aids.</li>
-                <li><strong>Mock Tests Series</strong> – Practice with hundreds of exam-like questions.</li>
-                <li><strong>Telegram Community Support</strong> – Interact with fellow aspirants and educators.</li>
+                <li><span><strong>Detailed Exam Syllabus</strong> – A clear roadmap of the Prelims + Mains syllabus.</span></li>
+                <li><span><strong>Step-by-Step Preparation Plan</strong> – Structured weekly and monthly study guidance.</span></li>
+                <li><span><strong>Comprehensive Notes & PDFs</strong> – Simplified coverage of GS papers & optional subjects.</span></li>
+                <li><span><strong>Short Notes for Quick Revision</strong> – Condensed material for last-minute prep.</span></li>
+                <li><span><strong>Revision Mind Maps</strong> – Visual learning aids for Polity, Economy, History & more.</span></li>
+                <li><span><strong>Previous Year Questions (PYQs)</strong> – Solved papers with detailed explanations.</span></li>
+                <li><span><strong>Important Books PDFs</strong> – Summarized versions of standard reference books.</span></li>
+                <li><span><strong>Curated Video Links</strong> – Handpicked videos & online study aids.</span></li>
+                <li><span><strong>Mock Tests Series</strong> – Practice with hundreds of exam-like questions.</span></li>
+                <li><span><strong>Telegram Community Support</strong> – Interact with fellow aspirants and educators.</span></li>
             </ul>
         </section>
         
@@ -630,6 +652,11 @@
                     <div class="testimonial-author">Rohan M.</div>
                     <div class="testimonial-location">Kota</div>
                 </div>
+                 <div class="testimonial-card">
+                    <p class="testimonial-text">Finally, a place with all important notes organized perfectly. The mind maps are brilliant for last-minute revision and connecting topics.</p>
+                    <div class="testimonial-author">Priya K.</div>
+                    <div class="testimonial-location">Mumbai</div>
+                </div>
             </div>
         </section>
         
@@ -678,7 +705,7 @@
         </section>
     </div>
     
-    <div class="payment-bar">
+    <div id="payment-section" class="payment-bar">
         <div class="payment-content">
             <div class="price-info">
                 Lifetime Access for <span class="price-amount">₹99</span>
