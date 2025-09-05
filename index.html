@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSC Preparation Materials | NotesSearch</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757085609/favicon-32x32_cclypp.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 140px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-align: center;
+            padding: 50px 0;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 25px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+        
+        .brand-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+        
+        .header h1 {
+            font-size: 3.2rem;
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        
+        .header p {
+            font-size: 1.4rem;
+            color: #94a3b8;
+            max-width: 650px;
+            font-weight: 500;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            backdrop-filter: blur(10px);
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #94a3b8;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+        
+        .samples-section {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 25px;
+            padding: 50px 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .samples-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .samples-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            margin-bottom: 40px;
+        }
+        
+        .sample-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .sample-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.4);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        
+        .sample-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-bottom: 4px solid;
+            border-image: linear-gradient(135deg, #6366f1, #8b5cf6) 1;
+            transition: transform 0.4s ease;
+        }
+        
+        .sample-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 10px;
+        }
+        
+        .card-desc {
+            font-size: 1rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+        
+        .features-section {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 25px;
+            padding: 50px 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .features-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .features-list {
+            list-style: none;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .features-list li {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 20px 30px;
+            margin-bottom: 18px;
+            border-radius: 15px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+        
+        .features-list li::before {
+            content: "✓";
+            font-weight: 800;
+            margin-right: 15px;
+            font-size: 1.4rem;
+            color: #ffffff;
+        }
+        
+        .features-list li:hover {
+            transform: translateX(8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+        
+        .features-list li:nth-child(even) {
+            background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%);
+        }
+        
+        .features-list li:nth-child(3n) {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+        }
+        
+        .testimonials-section {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 25px;
+            padding: 50px 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .testimonials-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .testimonials-subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(30, 41, 59, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-location {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .faq-section {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 25px;
+            padding: 50px 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .faq-subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .faq-item {
+            background: rgba(30, 41, 59, 0.6);
+            margin-bottom: 15px;
+            border-radius: 15px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            font-weight: 600;
+            color: #f1f5f9;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .faq-question::after {
+            content: "+";
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        
+        .social-section {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .social-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+        }
+        
+        .payment-button {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            padding: 20px 25px;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            border-top: 1px solid rgba(99, 102, 241, 0.3);
+        }
+        
+        .payment-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .price-info {
+            color: #f1f5f9;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .price-amount {
+            color: #34d399;
+            font-size: 2rem;
+        }
+        
+        .pay-btn {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .pay-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                padding-bottom: 160px;
+            }
+            
+            .brand {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .brand-name {
+                font-size: 1.8rem;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .stats {
+                gap: 20px;
+            }
+            
+            .stat-item {
+                min-width: 150px;
+                padding: 20px;
+            }
+            
+            .samples-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .sample-card img {
+                height: 300px;
+            }
+            
+            .samples-section, .features-section, .testimonials-section, .faq-section {
+                padding: 35px 25px;
+            }
+            
+            .features-section h2, .samples-section h2, .testimonials-section h2, .faq-section h2 {
+                font-size: 2rem;
+            }
+            
+            .payment-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .price-info {
+                font-size: 1.3rem;
+            }
+            
+            .price-amount {
+                font-size: 1.8rem;
+            }
+            
+            .social-links {
+                gap: 15px;
+            }
+            
+            .social-link {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="brand">
+                    <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757085609/favicon-32x32_cclypp.png" alt="NotesSearch Logo" class="logo floating">
+                    <div class="brand-name">NotesSearch</div>
+                </div>
+                <h1>UPSC Preparation Materials</h1>
+                <p>Complete Study Package for UPSC Civil Services Examination - Your Path to Success</p>
+            </div>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">1500+</span>
+                <div class="stat-label">Students</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">🔒</span>
+                <div class="stat-label">Secure Payment Gateway</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">10 min</span>
+                <div class="stat-label">Get Course Access</div>
+            </div>
+        </div>
+
+        
+        <section class="features-section">
+            <h2>What You'll Get</h2>
+            <ul class="features-list">
+                <li><strong>Detailed Exam Syllabus Overview</strong> – clear roadmap of Prelims + Mains syllabus</li>
+                <li><strong>Step-by-Step Preparation Plan</strong> – structured weekly and monthly study guidance</li>
+                <li><strong>Comprehensive Notes & Handwritten PDFs</strong> – simplified coverage of GS papers & optional subjects</li>
+                <li><strong>Short Notes for Quick Revision</strong> – condensed material for last-minute prep</li>
+                <li><strong>Revision Mind Maps</strong> – visual learning aids for Polity, Economy, History & more</li>
+                <li><strong>Previous Year Questions (PYQs)</strong> – solved papers with explanations</li>
+                <li><strong>Important Books PDFs</strong> – summarized versions of standard references</li>
+                <li><strong>Preparation Plan with Video/Resource Links</strong> – curated videos & online study aids</li>
+                <li><strong>Mock Tests</strong> – practice with exam-like questions</li>
+                <li><strong>Community Support on Telegram</strong> – interact, ask doubts, share strategies with fellow aspirants</li>
+            </ul>
+        </section>
+                
+        <section class="samples-section">
+            <h2>UPSC Study Material Samples</h2>
+            <div class="samples-grid">
+                <div class="sample-card">
+                    <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757085405/Drive_SSC_01_page-0001_pfx5qi.jpg" alt="UPSC Prelims Study Material">
+                    <div class="card-content">
+                        <div class="card-title">UPSC Prelims Notes</div>
+                        <div class="card-desc">Comprehensive notes covering all GS topics for Prelims</div>
+                    </div>
+                </div>
+                
+                <div class="sample-card">
+                    <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757085405/JEE_Bundle_page-0001_gg9okq.jpg" alt="UPSC Mains Study Material">
+                    <div class="card-content">
+                        <div class="card-title">UPSC Mains Bundle</div>
+                        <div class="card-desc">Detailed preparation materials for all Mains papers</div>
+                    </div>
+                </div>
+                
+                <div class="sample-card">
+                    <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757085405/Drive_NEET_01_page-0001_gghvmb.jpg" alt="UPSC Optional Subject Material">
+                    <div class="card-content">
+                        <div class="card-title">Optional Subject Notes</div>
+                        <div class="card-desc">Specialized notes for popular optional subjects</div>
+                    </div>
+                </div>
+                
+                <div class="sample-card">
+                    <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757085405/Drive_JEE_01_page-0001_uxt5j1.jpg" alt="UPSC Current Affairs">
+                    <div class="card-content">
+                        <div class="card-title">Current Affairs Compilation</div>
+                        <div class="card-desc">Updated current affairs with analysis and MCQs</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        
+        <section class="testimonials-section">
+            <h2>What Our Students Say</h2>
+            <p class="testimonials-subtitle">Real feedback from our growing community.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"NotesSearch helped me revise UPSC GS syllabus in half the time. The curated notes are a lifesaver. Highly recommended!"</p>
+                    <div class="testimonial-author">Anjali S.</div>
+                    <div class="testimonial-location">Delhi</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The JEE question banks are top-notch. I felt so much more confident after practicing with them. Thank you, NotesSearch!"</p>
+                    <div class="testimonial-author">Rohan M.</div>
+                    <div class="testimonial-location">Kota</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Finally, a place with all the important NEET notes organized perfectly. The mind maps are brilliant for last-minute revision."</p>
+                    <div class="testimonial-author">Priya K.</div>
+                    <div class="testimonial-location">Mumbai</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <p class="faq-subtitle">Have questions? We've got answers.</p>
+            <div class="faq-item">
+                <div class="faq-question">How do I get the notes after payment?</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Are these handwritten or typed notes?</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do I need an account to buy a course?</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What if my payment fails but money is deducted?</div>
+            </div>
+        </section>
+        
+        <section class="social-section">
+            <h3 class="social-title">Connect With Us</h3>
+            <div class="social-links">
+                <a href="https://www.instagram.com/notessearch.in/?igsh=NWM5cTF5Z3plbWMw#" class="social-link" target="_blank">
+                    <span>📷</span> Instagram
+                </a>
+                <a href="https://t.me/notessearchin" class="social-link" target="_blank">
+                    <span>📱</span> Telegram
+                </a>
+                <a href="mailto:notessearchin@gmail.com" class="social-link">
+                    <span>✉️</span> Email
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <div class="payment-button">
+        <div class="payment-content">
+            <div class="price-info">
+                Total <span class="price-amount">₹99</span>
+            </div>
+            <a href="https://payments.cashfree.com/forms/notessearch-upsc" target="_blank" class="pay-btn">Continue to Pay</a>
+        </div>
+    </div>
+</body>
+</html>
