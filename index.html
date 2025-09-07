@@ -92,7 +92,7 @@
             width: 40px;
             height: 40px;
             border-radius: 10px;
-            will-change: transform; /* Performance optimization for animation */
+            will-change: transform;
         }
         
         .brand-name {
@@ -109,7 +109,7 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
-            padding-bottom: 160px; /* Space for sticky footer */
+            padding-bottom: 160px;
             position: relative;
             z-index: 1;
         }
@@ -156,7 +156,7 @@
             border-radius: 16px;
             border: 1px solid rgba(99, 102, 241, 0.15);
             min-width: 220px;
-            transition: transform 0.3s ease; /* Optimized transition */
+            transition: transform 0.3s ease;
             will-change: transform;
         }
 
@@ -205,53 +205,73 @@
             color: var(--slate-400);
             margin-bottom: 40px;
             font-size: 1.1rem;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
         
-        /* Features Section */
-        .features-list {
-            list-style: none;
-            max-width: 800px;
-            margin: 0 auto;
+        /* ===== START: NEW FEATURES SECTION CSS ===== */
+        .features-grid {
+            display: grid;
+            /* Creates a responsive 2-column grid on larger screens */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
-        
-        .features-list li {
-            background: linear-gradient(135deg, var(--purple-500), var(--violet-500));
-            color: white;
-            padding: 20px 25px;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: transform 0.3s ease; /* Optimized transition */
-            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.25);
+
+        .feature-card {
+            background: var(--slate-800);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+        }
+
+        .feature-card-title {
             display: flex;
-            align-items: flex-start;
-            will-change: transform;
-        }
-        
-        .features-list li::before {
-            content: "✓";
-            font-weight: 700;
-            margin-right: 15px;
+            align-items: center;
+            gap: 12px;
             font-size: 1.3rem;
-            margin-top: 2px;
-            flex-shrink: 0;
+            font-weight: 700;
+            color: var(--slate-100);
+            margin-bottom: 20px;
         }
         
-        .features-list li:hover {
-            transform: translateX(10px) scale(1.02);
+        .feature-card-title span { /* For the emoji */
+            font-size: 1.5rem;
         }
 
-        .features-list li:nth-child(even) {
-            background: linear-gradient(135deg, var(--violet-500), var(--indigo-500));
+        .feature-card ul {
+            list-style: none;
         }
 
-        /* ===== START: NEW SAMPLES SECTION CSS ===== */
+        .feature-card li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            color: var(--slate-200); /* This is the 'dark white' color */
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .feature-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--green-400);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        /* ===== END: NEW FEATURES SECTION CSS ===== */
+        
+        /* Samples Section */
         .samples-gallery {
             display: grid;
-            /* Creates a responsive grid that shows as many columns as fit */
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
         }
@@ -259,11 +279,10 @@
         .sample-image-wrapper {
             background: var(--slate-800);
             border-radius: 12px;
-            padding: 8px; /* Adds a small frame around the image */
+            padding: 8px;
             border: 1px solid rgba(99, 102, 241, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             will-change: transform;
-            /* This makes the container a perfect square */
             aspect-ratio: 1 / 1;
             display: flex;
             align-items: center;
@@ -278,12 +297,10 @@
         .sample-image-wrapper img {
             width: 100%;
             height: 100%;
-            /* 'contain' fits the entire image inside the container without cropping or stretching */
             object-fit: contain; 
             border-radius: 6px;
         }
-        /* ===== END: NEW SAMPLES SECTION CSS ===== */
-        
+
         /* Testimonials Section */
         .testimonials-grid {
             display: grid;
@@ -296,7 +313,7 @@
             padding: 30px;
             border-radius: 16px;
             border: 1px solid rgba(99, 102, 241, 0.2);
-            transition: transform 0.3s ease; /* Optimized transition */
+            transition: transform 0.3s ease;
             will-change: transform;
         }
         
@@ -403,7 +420,7 @@
             text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Optimized transition */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
             will-change: transform;
         }
@@ -457,7 +474,7 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Optimized transition */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -489,7 +506,7 @@
 
             .container {
                 padding: 15px;
-                padding-bottom: 150px; /* Adjusted for smaller payment bar */
+                padding-bottom: 150px;
             }
 
             .header { padding: 40px 15px; }
@@ -500,18 +517,22 @@
             .stats { gap: 15px; }
             .stat-item { min-width: 0; flex: 1 1 120px; padding: 20px; }
             
-            /* Responsive adjustments for the new samples gallery */
             .samples-gallery {
                 grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
                 gap: 15px;
             }
             
             .section { padding: 35px 25px; }
-            .features-list li { padding: 18px 20px; font-size: 0.95rem; }
+
+            .features-grid {
+                grid-template-columns: 1fr; /* Stack cards on mobile */
+                gap: 20px;
+            }
+            .feature-card { padding: 25px; }
             
             .payment-bar { padding: 12px 15px; }
             .payment-content {
-                flex-direction: row; /* Changed to row for compact view */
+                flex-direction: row;
                 gap: 15px;
             }
             
@@ -553,29 +574,76 @@
         </div>
         
         <section class="section features-section">
-            <h2 class="section-title">What You'll Get</h2>
-            <ul class="features-list">
-                <li><span><strong>Detailed Exam Syllabus</strong> – A clear roadmap of the Prelims + Mains syllabus.</span></li>
-                <li><span><strong>Step-by-Step Preparation Plan</strong> – Structured weekly and monthly study guidance.</span></li>
-                <li><span><strong>Comprehensive Notes & PDFs</strong> – Simplified coverage of GS papers & optional subjects.</span></li>
-                <li><span><strong>Short Notes for Quick Revision</strong> – Condensed material for last-minute prep.</span></li>
-                <li><span><strong>Revision Mind Maps</strong> – Visual learning aids for Polity, Economy, History & more.</span></li>
-                <li><span><strong>Previous Year Questions (PYQs)</strong> – Solved papers with detailed explanations.</span></li>
-                <li><span><strong>Important Books PDFs</strong> – Summarized versions of standard reference books.</span></li>
-                <li><span><strong>Curated Video Links</strong> – Handpicked videos & online study aids.</span></li>
-                <li><span><strong>Mock Tests Series</strong> – Practice with hundreds of exam-like questions.</span></li>
-                <li><span><strong>Telegram Community Support</strong> – Interact with fellow aspirants and educators.</span></li>
-            </ul>
+            <h2 class="section-title">What You’ll Get in This Package</h2>
+            <p class="section-subtitle">A comprehensive, well-organized, and topper-verified collection of resources designed to guarantee your success in the UPSC exam.</p>
+            <div class="features-grid">
+                
+                <div class="feature-card">
+                    <h3 class="feature-card-title"><span>📖</span> Complete Exam Coverage</h3>
+                    <ul>
+                        <li>Detailed Exam Syllabus (Prelims + Mains)</li>
+                        <li>9-Month Roadmap & Study Plan by Toppers</li>
+                        <li>Personalized Topper Study Strategies</li>
+                        <li>More than 2000+ Organised PdFs and Books</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-card-title"><span>📝</span> Comprehensive Notes</h3>
+                    <ul>
+                        <li>Handwritten & Printed Notes (Hindi & English)</li>
+                        <li>GS Paper 1, 2, 3, 4 – Updated & Easy-to-Understand</li>
+                        <li>CSAT Notes (Prelims) & NCERT Class 6–12 Notes</li>
+                        <li>NCERT Revision Material for Quick Recall</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-card-title"><span>🎯</span> Answer Writing & Practice</h3>
+                    <ul>
+                        <li>Answer Writing Guide from Toppers’ Strategies</li>
+                        <li>Toppers’ Answer Sheets for Real Exam Insight</li>
+                        <li>PYQs with Solutions & Toppers’ Answers</li>
+                        <li>Mock Tests & Practice Question Sets</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-card-title"><span>📚</span> Exclusive Study Material</h3>
+                    <ul>
+                        <li>5+ Coaching Institutes' Materials Combined</li>
+                        <li>Toppers’ Notes (Directly from Candidates)</li>
+                        <li>Spectrum Books, 200+ Recommended Books</li>
+                        <li>Current Affairs, Budget & Economic Surveys</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-card-title"><span>🌍</span> Additional Resources</h3>
+                    <ul>
+                        <li>Maps & Atlas-based Study Material</li>
+                        <li>Test Series with Detailed Explanations</li>
+                        <li>Monthly Updated Notes & Materials</li>
+                        <li>Revision-Friendly Short Notes</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-card-title"><span>🤝</span> Community & Support</h3>
+                    <ul>
+                        <li>Dedicated Telegram Community for Doubts</li>
+                        <li>Peer Learning & Answer Review Support</li>
+                        <li>Regular Guidance & Motivation from Mentors</li>
+                        <li>Updated Current Affairs and Notes Every Month</li>
+                    </ul>
+                </div>
+
+            </div>
         </section>
-        
         <section class="section samples-section">
             <h2 class="section-title">Study Material Samples</h2>
             <p class="section-subtitle">Take a look at the quality and variety of the notes you'll receive.</p>
             <div class="samples-gallery">
-                
-
-
-
                 <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248583/Picture1-Main_ohmbzo.png" alt="UPSC Sample Material 1" loading="lazy"></div>
                 <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248583/Picture3_vkefbw.png" alt="UPSC Sample Material 2" loading="lazy"></div>
                 <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248586/Picture12_bcvfja.png" alt="UPSC Sample Material 3" loading="lazy"></div>
@@ -602,6 +670,7 @@
                 <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248587/Picture15_kmasei.png" alt="UPSC Sample Material 20" loading="lazy"></div>
             </div>
         </section>
+        
         <section class="section testimonials-section">
             <h2 class="section-title">What Our Students Say</h2>
             <p class="section-subtitle">Real feedback from our growing community of successful aspirants.</p>
