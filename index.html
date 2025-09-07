@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPSC Preparation Materials | NotesSearch</title>
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757085609/favicon-32x32_cclypp.png">
     
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -189,7 +187,6 @@
             padding: 50px 40px;
             margin-bottom: 50px;
             border: 1px solid rgba(99, 102, 241, 0.2);
-            /* Removed backdrop-filter and complex box-shadow for performance */
         }
         
         .section-title {
@@ -251,62 +248,41 @@
             background: linear-gradient(135deg, var(--violet-500), var(--indigo-500));
         }
 
-        /* Samples Section */
-        .samples-grid {
+        /* ===== START: NEW SAMPLES SECTION CSS ===== */
+        .samples-gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            /* Creates a responsive grid that shows as many columns as fit */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
         
-        .sample-card {
+        .sample-image-wrapper {
             background: var(--slate-800);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Optimized transition */
+            border-radius: 12px;
+            padding: 8px; /* Adds a small frame around the image */
             border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             will-change: transform;
+            /* This makes the container a perfect square */
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .sample-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.25);
+        .sample-image-wrapper:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.25);
         }
         
-        .sample-card .img-container {
-            width: 100%;
-            height: 350px;
-            overflow: hidden;
-            border-bottom: 3px solid transparent;
-            border-image: linear-gradient(135deg, var(--indigo-500), var(--violet-500)) 1;
-        }
-
-        .sample-card img {
+        .sample-image-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
+            /* 'contain' fits the entire image inside the container without cropping or stretching */
+            object-fit: contain; 
+            border-radius: 6px;
         }
-        
-        .sample-card:hover img {
-            transform: scale(1.05);
-        }
-        
-        .card-content {
-            padding: 25px;
-            text-align: center;
-        }
-        
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--slate-100);
-            margin-bottom: 8px;
-        }
-        
-        .card-desc {
-            font-size: 1rem;
-            color: var(--slate-400);
-        }
+        /* ===== END: NEW SAMPLES SECTION CSS ===== */
         
         /* Testimonials Section */
         .testimonials-grid {
@@ -524,11 +500,11 @@
             .stats { gap: 15px; }
             .stat-item { min-width: 0; flex: 1 1 120px; padding: 20px; }
             
-            .samples-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
+            /* Responsive adjustments for the new samples gallery */
+            .samples-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 15px;
             }
-            .sample-card .img-container { height: 300px; }
             
             .section { padding: 35px 25px; }
             .features-list li { padding: 18px 20px; font-size: 0.95rem; }
@@ -548,10 +524,10 @@
 <body>
     <nav class="top-nav">
         <div class="nav-content">
-             <a href="#" class="brand">
-                <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_96/v1757085609/favicon-32x32_cclypp.png" alt="NotesSearch Logo" class="logo floating" loading="lazy" decoding="async">
-                <div class="brand-name">NotesSearch</div>
-            </a>
+              <a href="#" class="brand">
+                  <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/f_auto,q_auto,w_96/v1757085609/favicon-32x32_cclypp.png" alt="NotesSearch Logo" class="logo floating" loading="lazy" decoding="async">
+                  <div class="brand-name">NotesSearch</div>
+              </a>
         </div>
     </nav>
 
@@ -594,50 +570,38 @@
         
         <section class="section samples-section">
             <h2 class="section-title">Study Material Samples</h2>
-            <div class="samples-grid">
-                <div class="sample-card">
-                    <div class="img-container">
-                        <!-- Optimized Sample Image 1 -->
-                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248583/Picture1-Main_ohmbzo.png" alt="UPSC Study Material Sample Image" loading="lazy" decoding="async">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">UPSC Prelims Notes</div>
-                        <div class="card-desc">Comprehensive notes covering all GS topics.</div>
-                    </div>
-                </div>
+            <p class="section-subtitle">Take a look at the quality and variety of the notes you'll receive.</p>
+            <div class="samples-gallery">
                 
-                <div class="sample-card">
-                    <div class="img-container">
-                        <!-- Optimized Sample Image 2 -->
-                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248583/Picture3_vkefbw.png" alt="UPSC Study Material Sample Image" loading="lazy" decoding="async">
-                    </div>
-                    <div class="card-content">
-             
-                        <div class="card-desc">Detailed materials for all Mains papers.</div>
-                    </div>
-                </div>
-                
-                <div class="sample-card">
-                    <div class="img-container">
-                        <!-- Optimized Sample Image 3 -->
-                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248586/Picture12_bcvfja.png" alt="UPSC Study Material Sample Image" loading="lazy" decoding="async">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Optional Subject Notes</div>
-                        
-                    </div>
-                </div>
-                
-                <div class="sample-card">
-                    <div class="img-container">
-                        <!-- Optimized Sample Image 4 -->
-                        <img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248587/Picture30_jxrsad.png" alt="UPSC Study Material Sample Image" loading="lazy" decoding="async">
-                    </div>
 
-                </div>
+
+
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248583/Picture1-Main_ohmbzo.png" alt="UPSC Sample Material 1" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248583/Picture3_vkefbw.png" alt="UPSC Sample Material 2" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248586/Picture12_bcvfja.png" alt="UPSC Sample Material 3" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248587/Picture30_jxrsad.png" alt="UPSC Sample Material 4" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248587/Picture18_sxjdlm.png" alt="UPSC Sample Material 1" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248588/Picture19_os2tkn.png" alt="UPSC Sample Material 2" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248583/Picture22_jkjkji.png" alt="UPSC Sample Material 3" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248584/Picture6_nphhkt.png" alt="UPSC Sample Material 4" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248587/Picture17_bwunby.png" alt="UPSC Sample Material 5" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248587/Picture16_lwuiee.png" alt="UPSC Sample Material 6" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248585/Picture24_mqqnjf.png" alt="UPSC Sample Material 7" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248585/Picture9_hea5mn.png" alt="UPSC Sample Material 8" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248585/Picture7_y1v9ak.png" alt="UPSC Sample Material 9" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248585/Picture10_hol18w.png" alt="UPSC Sample Material 10" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248583/Picture20_hesf4s.png" alt="UPSC Sample Material 11" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248586/Picture27_tuydbh.png" alt="UPSC Sample Material 12" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248583/Picture4_uh18sw.png" alt="UPSC Sample Material 13" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248587/Picture31_mgj9ui.png" alt="UPSC Sample Material 14" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248586/Picture28_hqdfym.png" alt="UPSC Sample Material 15" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248586/Picture26_lnrtln.png" alt="UPSC Sample Material 16" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248586/Picture13_ckthny.png" alt="UPSC Sample Material 17" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248586/Picture14_rs9taz.png" alt="UPSC Sample Material 18" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248586/Picture29_nu37n2.png" alt="UPSC Sample Material 19" loading="lazy"></div>
+                <div class="sample-image-wrapper"><img src="https://res.cloudinary.com/dk2wbvvpj/image/upload/v1757248587/Picture15_kmasei.png" alt="UPSC Sample Material 20" loading="lazy"></div>
             </div>
         </section>
-        
         <section class="section testimonials-section">
             <h2 class="section-title">What Our Students Say</h2>
             <p class="section-subtitle">Real feedback from our growing community of successful aspirants.</p>
@@ -737,4 +701,3 @@
     </script>
 </body>
 </html>
-
